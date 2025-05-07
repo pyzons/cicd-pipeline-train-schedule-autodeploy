@@ -1,12 +1,20 @@
-plugins {
+//plugins {
   //inlude the nodeJS plugin to execute nodejs and npm tasks
-  id "com.moowork.node" version "1.2.0"
+//  id "com.moowork.node" version "1.2.0"
+//}
+plugins {
+    id "com.github.node-gradle.node" version "3.5.0"
 }
-
+//node {
+//	download = true
+//	version = "9.11.1"
+//	npmVersion = "5.6.0"
+//}
 node {
-	download = true
-	version = "9.11.1"
-	npmVersion = "5.6.0"
+    version = "18.17.0" // Use a supported Node.js version
+    distBaseUrl = "https://nodejs.org/dist/"
+    download = true
+    npmVersion = "10.8.2"
 }
 
 //declare a build task
