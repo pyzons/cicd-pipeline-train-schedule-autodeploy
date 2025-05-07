@@ -1,5 +1,5 @@
 pipeline {
-    agent master
+    agent none
     environment {
         //be sure to replace "bhavukm" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "pyzons/train-schedule"
