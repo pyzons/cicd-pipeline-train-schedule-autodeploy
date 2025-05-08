@@ -10,7 +10,7 @@ pipeline {
                 echo 'Running build automation'
                 sh '''
                     echo $PATH
-                    export PATH=$PATH:/home/vsk2042/.nvm/versions/node/v16.20.0/bin
+                    export PATH=$PATH:/home/vsk2042/.nvm/versions/node/v9.11.1/bin
                     npm -v
                     node -v
                     JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64 ./gradlew build --no-daemon --refresh-dependencies
