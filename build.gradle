@@ -6,7 +6,7 @@ plugins {
 node {
     version = '16.20.0' // Specify the Node.js version you need
     npmVersion = '8.19.2' // Optionally, set the npm version
-    download = false
+    download = true
 }
 
 
