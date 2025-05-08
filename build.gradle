@@ -4,8 +4,8 @@ plugins {
 }
 
 node {
-    version = '16.20.0' // Specify the Node.js version you need
-    npmVersion = '8.19.2' // Optionally, set the npm version
+    version = '9.11.1' // Specify the Node.js version you need
+    npmVersion = '5.6.0' // Optionally, set the npm version
     download = false
 }
 
@@ -26,10 +26,7 @@ task zip(type: Zip) {
 	destinationDir(file("dist"))
 	baseName "trainSchedule"
 }
-tasks.register("npm_build", Exec) {
-    commandLine "npm", "run", "build"
-    dependsOn npm_test
-}
+
 //declare task dependencies
 build.dependsOn zip
 zip.dependsOn npm_build
