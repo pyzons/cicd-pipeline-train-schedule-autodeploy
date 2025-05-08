@@ -1,5 +1,5 @@
 plugins {
-    id "com.github.node-gradle.node" version "3.0.1" // Use the latest stable version
+    id "com.github.node-gradle.node" version "3.0.1"
 }
 
 node {
