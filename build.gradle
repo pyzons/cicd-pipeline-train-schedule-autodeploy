@@ -3,12 +3,18 @@ plugins {
   id "com.moowork.node" version "1.2.0"
 }
 
-//node {
-   // version = '16.20.0' // Specify the Node.js version you need
-    //npmVersion = '8.19.2' // Optionally, set the npm version
-  //  download = false
-//}
+node {
+    version = '16.20.0' // Specify the Node.js version you need
+    npmVersion = '8.19.2' // Optionally, set the npm version
+    download = false
+}
+// Remove any nodeSetup or npmSetup dependencies if they exist
 
+tasks.withType(NodeTask).configureEach {
+
+    enabled = false
+
+}
 
 //declare a build task
 task build
