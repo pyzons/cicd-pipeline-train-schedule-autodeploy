@@ -3,9 +3,9 @@ plugins {
 }
 
 node {
-    version = '16.13.0' // Specify the Node.js version you need
-    npmVersion = '8.1.0' // Optionally, set the npm version
-    download = true
+    version = '20.13.1' // Specify the Node.js version you need
+    npmVersion = '10.5.2' // Optionally, set the npm version
+    download = false
 }
 
 
