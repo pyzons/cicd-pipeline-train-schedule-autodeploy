@@ -3,7 +3,7 @@ pipeline {
     environment {
         //be sure to replace "bhavukm" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "pyzons/train-schedule"
-        KUBECONFIG = "/home/vsk2042/.kube/config"
+        KUBECONFIG = "/var/lib/jenkins/.kube/config"
     }
     stages {
         stage('Build') {
