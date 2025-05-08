@@ -26,7 +26,10 @@ task zip(type: Zip) {
 	destinationDir(file("dist"))
 	baseName "trainSchedule"
 }
-
+tasks.register("npm_build", Exec) {
+    commandLine "npm", "run", "build"
+    dependsOn npm_test
+}
 //declare task dependencies
 build.dependsOn zip
 zip.dependsOn npm_build
