@@ -79,7 +79,7 @@ pipeline {
                  //   configs: 'train-schedule-kube-canary.yml',
                   //  enableConfigSubstitution: true
                 //)
-                sh 'kubectl apply -f train-schedule-kube.yml.yml'
+                sh 'kubectl apply -f train-schedule-kube.yml'
                 //kubernetesDeploy(
                  //   kubeconfigId: 'kubec-onfig',
                   //  configs: 'train-schedule-kube.yml',
