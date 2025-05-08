@@ -8,13 +8,6 @@ node {
     npmVersion = '8.19.2' // Optionally, set the npm version
     download = false
 }
-// Remove any nodeSetup or npmSetup dependencies if they exist
-
-tasks.withType(NodeTask).configureEach {
-
-    enabled = false
-
-}
 
 //declare a build task
 task build
