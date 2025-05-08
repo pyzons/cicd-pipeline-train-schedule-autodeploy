@@ -73,7 +73,7 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                sh 'kubectl apply -f train-schedule-kube-canary.yml'
+                //sh 'kubectl apply -f train-schedule-kube-canary.yml'
                 //kubernetesDeploy(
                  //   kubeconfigId: 'kubeconfig',
                  //   configs: 'train-schedule-kube-canary.yml',
