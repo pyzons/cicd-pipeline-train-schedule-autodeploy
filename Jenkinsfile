@@ -46,6 +46,7 @@ pipeline {
             }
         }
         stage('CanaryDeploy') {
+            agent { label 'master' }
             when {
                 branch 'master'
             }
@@ -53,14 +54,16 @@ pipeline {
                 CANARY_REPLICAS = 1
             }
             steps {
-                kubernetesDeploy(
-                    kubeconfigId: 'kube-config',
-                    configs: 'train-schedule-kube-canary.yml',
-                    enableConfigSubstitution: true
-                )
+                sh 'kubectl apply -f train-schedule-kube-canary.yml'
+                //kubernetesDeploy(
+                //    kubeconfigId: 'kube-config',
+                 //   configs: 'train-schedule-kube-canary.yml',
+                 //   enableConfigSubstitution: true
+                //)
             }
         }
         stage('DeployToProduction') {
+            agent { label 'master' }
             when {
                 branch 'master'
             }
@@ -70,15 +73,17 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'train-schedule-kube-canary.yml',
-                    enableConfigSubstitution: true
-                )
-                kubernetesDeploy(
-                    kubeconfigId: 'kubec-onfig',
-                    configs: 'train-schedule-kube.yml',
-                    enableConfigSubstitution: true
+                sh 'kubectl apply -f train-schedule-kube-canary.yml'
+                //kubernetesDeploy(
+                 //   kubeconfigId: 'kubeconfig',
+                 //   configs: 'train-schedule-kube-canary.yml',
+                  //  enableConfigSubstitution: true
+                //)
+                sh 'kubectl apply -f train-schedule-kube.yml.yml'
+                //kubernetesDeploy(
+                 //   kubeconfigId: 'kubec-onfig',
+                  //  configs: 'train-schedule-kube.yml',
+                  //  enableConfigSubstitution: true
                 )
             }
         }
