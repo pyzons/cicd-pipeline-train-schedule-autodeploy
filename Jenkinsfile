@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
-                sh 'JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64 ./gradlew build --no-daemon'
+                sh 'JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64 ./gradlew build --no-daemon --refresh-dependencies'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
