@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    //agent any
     environment {
         //be sure to replace "bhavukm" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "pyzons/train-schedule"
@@ -7,6 +7,11 @@ pipeline {
     }
     stages {
         stage('Build') {
+            agent { label 'master' }
+            when {
+                branch 'master'
+            }
+            agent { label 'master' }
             steps {
                 echo 'Running build automation'
                 sh '''
@@ -23,6 +28,7 @@ pipeline {
             when {
                 branch 'master'
             }
+            agent { label 'master' }
             steps {
                 script {
                     app = docker.build(DOCKER_IMAGE_NAME)
@@ -36,6 +42,7 @@ pipeline {
             when {
                 branch 'master'
             }
+            agent { label 'master' }
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
