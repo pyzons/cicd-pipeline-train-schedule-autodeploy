@@ -28,7 +28,7 @@ pipeline {
             when {
                 branch 'master'
             }
-            agent { label 'master' }
+            agent { label 'docker' }
             steps {
                 script {
                     app = docker.build(DOCKER_IMAGE_NAME)
@@ -42,7 +42,7 @@ pipeline {
             when {
                 branch 'master'
             }
-            agent { label 'master' }
+            agent { label 'docker' }
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
