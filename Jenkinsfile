@@ -62,12 +62,7 @@ pipeline {
             }
             steps {
                 sh 'kubectl apply -f train-schedule-kube-canary.yml'
-                //kubernetesDeploy(
-                //    kubeconfigId: 'kube-config',
-                 //   configs: 'train-schedule-kube-canary.yml',
-                 //   enableConfigSubstitution: true
-                //)
-            }
+                }
         }
         stage('DeployToProduction') {
             agent { label 'master' }
@@ -80,18 +75,9 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                //sh 'kubectl apply -f train-schedule-kube-canary.yml'
-                //kubernetesDeploy(
-                 //   kubeconfigId: 'kubeconfig',
-                 //   configs: 'train-schedule-kube-canary.yml',
-                  //  enableConfigSubstitution: true
-                //)
+                
                 sh 'kubectl apply -f train-schedule-kube.yml'
-                //kubernetesDeploy(
-                 //   kubeconfigId: 'kubec-onfig',
-                  //  configs: 'train-schedule-kube.yml',
-                  //  enableConfigSubstitution: true
-                //)
+                
             }
         }
     }
