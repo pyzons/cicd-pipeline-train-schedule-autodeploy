@@ -7,7 +7,7 @@ pipeline {
     }
     stages {
         stage('Build') {
-            agent { label 'master' }
+            //agent { label 'master' }
             when {
                 branch 'master'
             }
