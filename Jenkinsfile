@@ -11,7 +11,7 @@ pipeline {
             when {
                 branch 'master'
             }
-            agent { label 'master' }
+            agent { label 'build' }
             steps {
                 echo 'Running build automation'
                 sh '''
